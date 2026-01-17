@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishShieldAI | Project Details - RL Melato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Project Detail Page Specific Styles - Single Column Layout */
+        :root {
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --background-light: #f9fafb;
+            --background-white: #ffffff;
+            --border-color: #e5e7eb;
+            --accent-primary: #4f46e5;
+            --accent-light: #e0e7ff;
+            --accent-lighter: #f5f3ff;
+        }
+
+        body {
+            color: var(--text-primary);
+            background: var(--background-white);
+            line-height: 1.6;
+        }
+
+        .project-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 5rem 0 3rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .btn-back:hover {
+            background: var(--accent-light);
+        }
+
+        .project-category {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-category-tag {
+            background: var(--background-white);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--accent-light);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .project-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item i {
+            color: var(--accent-primary);
+        }
+
+        /* Main Content Layout - Single Column */
+        .project-content {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .project-section {
+            margin-bottom: 4rem;
+        }
+
+        .project-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-light);
+        }
+
+        .project-section h2 i {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: var(--background-white);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.1);
+        }
+
+        .overview-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-card-icon {
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .overview-card h3 {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .overview-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .overview-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .overview-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .overview-card li:before {
+            content: "✓";
+            color: var(--accent-primary);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .overview-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Feature Showcase */
+        .feature-showcase {
+            background: var(--background-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--background-white);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            background: var(--accent-primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* My Role Section */
+        .role-section {
+            background: linear-gradient(135deg, var(--accent-lighter) 0%, #f8fafc 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--accent-light);
+        }
+
+        .responsibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .responsibility-card {
+            background: var(--background-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .responsibility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.1);
+        }
+
+        .responsibility-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .responsibility-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .responsibility-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .responsibility-card li:before {
+            content: "•";
+            color: var(--accent-primary);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .responsibility-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Technical Implementation */
+        .tech-stack-section {
+            background: var(--background-white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-category {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-category h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .tech-category h4 i {
+            color: var(--accent-primary);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            transition: all 0.3s;
+        }
+
+        .tech-tag:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* AI Pipeline Visualization */
+        .pipeline-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .pipeline-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .pipeline-steps:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-light);
+        }
+
+        .pipeline-step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .step-number {
+            background: var(--accent-primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            z-index: 1;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .step-content {
+            background: var(--background-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            flex: 1;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .step-content h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Model Architecture */
+        .architecture-section {
+            background: var(--background-white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .architecture-node {
+            background: var(--background-white);
+            border: 2px solid var(--accent-light);
+            padding: 1.5rem 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .architecture-node:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.1);
+        }
+
+        .architecture-node i {
+            font-size: 1.75rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .architecture-node h5 {
+            color: var(--text-primary);
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .architecture-node p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Code Example */
+        .code-example {
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0 3rem;
+            border: 1px solid #374151;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .code-header {
+            background: #0f172a;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #374151;
+        }
+
+        .code-header h4 {
+            color: #e2e8f0;
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .code-header h4 i {
+            color: #60a5fa;
+        }
+
+        .code-language {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        pre {
+            color: #e2e8f0;
+            padding: 1.5rem;
+            margin: 0;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: linear-gradient(135deg, var(--accent-lighter) 0%, #f8fafc 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--accent-light);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-card {
+            background: var(--background-white);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.1);
+        }
+
+        .result-icon {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .result-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Challenges Section */
+        .challenges-section {
+            margin: 2rem 0 3rem;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .challenge-card {
+            background: var(--background-white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .challenge-header {
+            background: var(--background-light);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .challenge-header i {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+        }
+
+        .challenge-header h4 {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .challenge-content {
+            padding: 1.5rem;
+        }
+
+        .challenge-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .solution-box {
+            background: var(--accent-lighter);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .solution-box strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-box p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Learning Outcomes */
+        .learning-outcomes {
+            background: var(--background-light);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .outcome-item {
+            background: var(--background-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .outcome-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .outcome-item i {
+            color: var(--accent-primary);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .outcome-item p {
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Hackathon Context */
+        .hackathon-context {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .constraints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .constraint-item {
+            background: var(--background-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .constraint-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .constraint-item i {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .constraint-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .constraint-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .project-cta {
+            text-align: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 16px;
+            margin: 4rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-cta h2 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .project-cta p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #4338ca;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-light);
+        }
+
+        .btn-large {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-light);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-light);
+            border-radius: 5px;
+            border: 2px solid var(--background-light);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .project-content {
+                padding: 0 2rem;
+            }
+            
+            .project-title {
+                font-size: 2.25rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .project-hero {
+                padding: 4rem 0 2.5rem;
+            }
+            
+            .project-content {
+                padding: 0 1.5rem;
+            }
+            
+            .project-meta {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .meta-item {
+                justify-content: center;
+            }
+            
+            .overview-grid,
+            .feature-grid,
+            .responsibility-grid,
+            .tech-categories,
+            .architecture-grid,
+            .results-grid,
+            .challenge-grid,
+            .outcomes-grid,
+            .constraints-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pipeline-steps:before {
+                left: 25px;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-large {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .project-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .project-category {
+                gap: 0.5rem;
+            }
+            
+            .project-category-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .project-content {
+                padding: 0 1rem;
+            }
+            
+            .project-section h2 {
+                font-size: 1.5rem;
+                gap: 0.75rem;
+            }
+            
+            .overview-card,
+            .feature-showcase,
+            .role-section,
+            .tech-stack-section,
+            .pipeline-section,
+            .architecture-section,
+            .results-section,
+            .challenges-section,
+            .learning-outcomes,
+            .hackathon-context,
+            .project-cta {
+                padding: 1.5rem;
+            }
+            
+            .project-cta {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Rose<span>Melato</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#learning">Journey</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html#projects" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
+            </div>
+            
+            <div class="project-hero-content">
+                <h1 class="project-title">PhishShieldAI</h1>
+                <p class="project-subtitle">AI-Powered Phishing Detection & Awareness Platform</p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>My Role:</strong> AI Developer (Python & NLP)</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Duration:</strong> 48-hour Hackathon</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span><strong>Team Size:</strong> 4 Developers</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-trophy"></i>
+                        <span><strong>Type:</strong> Time-bound Competition</span>
+                    </div>
+                </div>
+                <br>
+                
+                <div class="project-category">
+                    <span class="project-category-tag">Hackathon Project</span>
+                    <span class="project-category-tag">AI/ML Development</span>
+                    <span class="project-category-tag">Cybersecurity</span>
+                    <span class="project-category-tag">Team Collaboration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content - Single Column Layout -->
+    <section class="project-content">
+        <!-- Project Overview -->
+        <div class="project-section">
+            <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>The Problem</h3>
+                    </div>
+                    <p>Phishing attacks account for over 90% of data breaches, with traditional detection methods struggling to keep pace with evolving tactics and lacking real-time protection for end-users.</p>
+                    <ul>
+                        <li>Traditional methods fail with new phishing techniques</li>
+                        <li>Lack of real-time protection mechanisms</li>
+                        <li>Limited user awareness about sophisticated attacks</li>
+                        <li>High success rate of phishing campaigns</li>
+                    </ul>
+                </div>
+                
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Our Solution</h3>
+                    </div>
+                    <p>An AI-powered platform that uses Natural Language Processing (NLP) and machine learning to detect phishing attempts in real-time while educating users about cybersecurity threats.</p>
+                    <ul>
+                        <li>Real-time AI analysis of suspicious messages</li>
+                        <li>Instant threat level classification</li>
+                        <li>Educational platform for awareness</li>
+                        <li>User-friendly interface with clear risk indicators</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="project-section">
+            <h2><i class="fas fa-star"></i> Key Features</h2>
+            
+            <div class="feature-showcase">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Real-time Detection</h4>
+                        <p>Instant analysis of messages with response times under 2 seconds using AI models</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Confidence Scoring</h4>
+                        <p>Percentage-based risk assessment with detailed breakdown of detection factors</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Educational Dashboard</h4>
+                        <p>Interactive learning platform about phishing techniques and prevention</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h4>Analytics & History</h4>
+                        <p>Track detection patterns and improve awareness over time with detailed reports</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Role & Contributions -->
+        <div class="project-section">
+            <h2><i class="fas fa-robot"></i> My Role: AI Developer</h2>
+            
+            <div class="role-section">
+                <p>As the AI Developer, I was responsible for designing and implementing the machine learning pipeline for phishing detection, focusing on natural language processing and model optimization.</p>
+                
+                <div class="responsibility-grid">
+                    <div class="responsibility-card">
+                        <h4><i class="fas fa-brain"></i> ML Model Development</h4>
+                        <ul>
+                            <li>Implemented Transformer-based NLP models for text classification</li>
+                            <li>Trained and fine-tuned models on phishing datasets</li>
+                            <li>Optimized model performance for real-time inference</li>
+                            <li>Implemented ensemble methods for improved accuracy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <h4><i class="fas fa-language"></i> NLP Pipeline</h4>
+                        <ul>
+                            <li>Preprocessed and cleaned text data from various sources</li>
+                            <li>Implemented feature extraction (TF-IDF, word embeddings)</li>
+                            <li>Created text vectorization pipeline for model input</li>
+                            <li>Handled multi-language text processing capabilities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <h4><i class="fas fa-cogs"></i> API & Integration</h4>
+                        <ul>
+                            <li>Built RESTful API for model inference and predictions</li>
+                            <li>Integrated AI model with frontend interface</li>
+                            <li>Implemented caching for performance optimization</li>
+                            <li>Created prediction endpoint with confidence scores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="project-section">
+            <h2><i class="fas fa-cogs"></i> Technical Implementation</h2>
+            
+            <div class="tech-stack-section">
+                <h3>Technology Stack</h3>
+                
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h4><i class="fas fa-brain"></i> AI/ML Core</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Transformers</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">NLTK</span>
+                            <span class="tech-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4><i class="fas fa-desktop"></i> Frontend</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4><i class="fas fa-server"></i> Backend & API</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Microservices</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">JSON</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Pipeline -->
+        <div class="project-section">
+            <h2><i class="fas fa-project-diagram"></i> AI Detection Pipeline</h2>
+            
+            <div class="pipeline-section">
+                <div class="pipeline-steps">
+                    <div class="pipeline-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Text Preprocessing</h4>
+                            <p>Clean and normalize input text by removing special characters, converting to lowercase, tokenization, and handling stop words to prepare for analysis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Feature Extraction</h4>
+                            <p>Convert text to numerical features using word embeddings, TF-IDF vectors, and linguistic features that help identify phishing patterns.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Model Inference</h4>
+                            <p>Pass extracted features through trained machine learning models to generate phishing probability predictions with confidence scores.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pipeline-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Result Classification</h4>
+                            <p>Classify messages as "Safe", "Suspicious", or "Phishing" based on prediction thresholds and provide actionable recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Architecture -->
+        <div class="project-section">
+            <h2><i class="fas fa-network-wired"></i> Model Architecture</h2>
+            
+            <div class="architecture-section">
+                <p>Our hybrid approach combined traditional machine learning with deep learning techniques for optimal phishing detection performance.</p>
+                
+                <div class="architecture-grid">
+                    <div class="architecture-node">
+                        <i class="fas fa-file-alt"></i>
+                        <h5>Text Input</h5>
+                        <p>Raw message analysis from emails, SMS, and social media</p>
+                    </div>
+                    
+                    <div class="architecture-node">
+                        <i class="fas fa-filter"></i>
+                        <h5>Preprocessing</h5>
+                        <p>Text cleaning, normalization, and tokenization</p>
+                    </div>
+                    
+                    <div class="architecture-node">
+                        <i class="fas fa-project-diagram"></i>
+                        <h5>Feature Extraction</h5>
+                        <p>TF-IDF, word embeddings, and linguistic features</p>
+                    </div>
+                    
+                    <div class="architecture-node">
+                        <i class="fas fa-network-wired"></i>
+                        <h5>Model Ensemble</h5>
+                        <p>Combined multiple ML models for robust detection</p>
+                    </div>
+                    
+                    <div class="architecture-node">
+                        <i class="fas fa-chart-bar"></i>
+                        <h5>Prediction</h5>
+                        <p>Risk score output with confidence metrics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Example -->
+        <div class="project-section">
+            <h2><i class="fas fa-code"></i> Technical Implementation</h2>
+            
+            <div class="code-example">
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> Python - Phishing Detection Model</h4>
+                    <span class="code-language">Python</span>
+                </div>
+                <pre><code># Phishing detection using ensemble of ML models
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.preprocessing import StandardScaler
+
+class PhishingDetector:
+    def __init__(self):
+        self.tfidf_vectorizer = TfidfVectorizer(max_features=5000)
+        self.scaler = StandardScaler()
+        self.models = {
+            'random_forest': RandomForestClassifier(n_estimators=100),
+            'gradient_boosting': GradientBoostingClassifier(n_estimators=100)
+        }
+    
+    def preprocess_text(self, text):
+        """Clean and prepare text for analysis"""
+        # Remove special characters and convert to lowercase
+        cleaned = text.lower()
+        cleaned = re.sub(r'[^a-zA-Z0-9\s]', '', cleaned)
+        return cleaned
+    
+    def extract_features(self, texts):
+        """Extract TF-IDF features from text"""
+        cleaned_texts = [self.preprocess_text(t) for t in texts]
+        tfidf_features = self.tfidf_vectorizer.transform(cleaned_texts)
+        return tfidf_features
+    
+    def predict(self, text):
+        """Predict phishing probability"""
+        features = self.extract_features([text])
+        scaled_features = self.scaler.transform(features.toarray())
+        
+        # Get predictions from all models
+        predictions = []
+        for model_name, model in self.models.items():
+            pred = model.predict_proba(scaled_features)[0][1]
+            predictions.append(pred)
+        
+        # Ensemble prediction (average of all models)
+        final_prediction = np.mean(predictions)
+        
+        # Classify based on threshold
+        if final_prediction < 0.3:
+            return {"status": "Safe", "confidence": final_prediction}
+        elif final_prediction < 0.7:
+            return {"status": "Suspicious", "confidence": final_prediction}
+        else:
+            return {"status": "Phishing", "confidence": final_prediction}</code></pre>
+            </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="project-section">
+            <h2><i class="fas fa-chart-line"></i> Results & Impact</h2>
+            
+            <div class="results-section">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="result-number">92%</div>
+                        <p>Detection accuracy on test dataset</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="result-number">&lt;2s</div>
+                        <p>Average response time per analysis</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="result-number">3</div>
+                        <p>ML models combined in ensemble</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="result-number">4</div>
+                        <p>Team members collaborating effectively</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hackathon Challenges -->
+        <div class="project-section">
+            <h2><i class="fas fa-puzzle-piece"></i> Hackathon Challenges</h2>
+            
+            <div class="challenges-section">
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-clock"></i>
+                            <h4>Time Constraints</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>Building and training effective ML models within 48 hours while also developing a functional frontend and backend presented significant time management challenges.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Used pre-trained models and transfer learning to accelerate development. Focused on creating a minimum viable product with core functionality first, then added enhancements as time allowed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-database"></i>
+                            <h4>Data Quality</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>Finding and preprocessing quality phishing datasets for training within the hackathon timeframe was challenging due to data scarcity and format inconsistencies.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Combined multiple open-source datasets and implemented aggressive data augmentation to improve model robustness. Created synthetic phishing examples to balance the dataset.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-users"></i>
+                            <h4>Team Coordination</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>Coordinating between AI development, frontend, and backend teams with limited communication time required efficient workflow management.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Established clear API contracts, used Git effectively for collaboration, and held quick stand-up meetings every 4 hours to ensure alignment and address blockers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hackathon Context -->
+        <div class="project-section">
+            <h2><i class="fas fa-trophy"></i> Hackathon Context</h2>
+            
+            <div class="hackathon-context">
+                <p>This project was developed under intense time pressure during a 48-hour hackathon, requiring rapid decision-making, efficient collaboration, and focus on delivering a functional MVP.</p>
+                
+                <div class="constraints-grid">
+                    <div class="constraint-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>48-Hour Window</h4>
+                        <p>Complete development from concept to working prototype within strict time constraints</p>
+                    </div>
+                    
+                    <div class="constraint-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>Limited Resources</h4>
+                        <p>Working with available computing resources and open-source tools only</p>
+                    </div>
+                    
+                    <div class="constraint-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Team Collaboration</h4>
+                        <p>Coordinating four developers with different specializations under time pressure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Outcomes -->
+        <div class="project-section">
+            <h2><i class="fas fa-graduation-cap"></i> Learning Outcomes</h2>
+            
+            <div class="learning-outcomes">
+                <div class="outcomes-grid">
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Rapid prototyping of machine learning solutions under extreme time pressure</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Integration of AI models into full-stack web applications with real-time inference</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Effective team collaboration in high-pressure, time-constrained environments</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Balancing model accuracy with deployment constraints and real-time requirements</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Creating user-friendly interfaces for complex AI systems with clear risk communication</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Data preprocessing and augmentation techniques for improving model robustness</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="project-cta">
+            <h2>Explore the AI Implementation</h2>
+            <p>View the complete source code including machine learning models and see how AI was integrated into a full-stack application during a 48-hour hackathon</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/thotogelomankwe99/PhishShieldAI.git" class="btn btn-large" target="_blank">
+                    <i class="fab fa-github"></i> View GitHub Repository
+                </a>
+                <a href="index.html#projects" class="btn btn-outline btn-large">
+                    <i class="fas fa-code"></i> See Other Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo" style="color: white;">RL<span style="color: #a78bfa;">Melato</span></a>
+            
+            <div class="footer-links">
+                <a href="https://github.com/RoseMelato"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="rosemelato25@gmail.com"><i class="fab fa-envelope"></i></a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2025 Rose Melato. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.overview-card, .feature-item, .responsibility-card, .architecture-node, .result-card, .challenge-card, .constraint-item, .outcome-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
