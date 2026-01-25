@@ -46,7 +46,7 @@ contactForm.addEventListener("submit", async (e) => {
   console.log("SENDING:", formData); // frontend debug
 
   try {
-    const response = await fetch("https://rlmelato-portfolio.onrender.com", {
+    const response = await fetch("https://rlmelato-myportfolio.onrender.com/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
