@@ -1,37 +1,35 @@
 // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navMenu = document.getElementById('navMenu');
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.style.padding = '10px 0';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.padding = '20px 0';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-        
-        
-// Form submission
-// Form submission
+mobileMenuBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  mobileMenuBtn.innerHTML = navMenu.classList.contains('active')
+    ? '<i class="fas fa-times"></i>'
+    : '<i class="fas fa-bars"></i>';
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('nav ul li a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+  });
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.style.padding = '10px 0';
+    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+  } else {
+    header.style.padding = '20px 0';
+    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+  }
+});
+
+// Form submission (Backend only)
 const contactForm = document.getElementById("contactForm");
 
 contactForm.addEventListener("submit", async (e) => {
@@ -46,20 +44,7 @@ contactForm.addEventListener("submit", async (e) => {
   };
 
   try {
-    // Send email via EmailJS
-    await emailjs.send(
-      "service_tpqrnj",      
-      "template_mhz4d27",    
-      {
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-      },              // Pass the data object
-      "3CWBYjiky_rY-T2yX"     
-    );
-
-    // Save to database (Render backend)
+    // Save to database via backend API
     const response = await fetch("https://rlmelato-myportfolio.onrender.com/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -81,27 +66,27 @@ contactForm.addEventListener("submit", async (e) => {
 });
 
 // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Update current year in copyright
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearSpan = document.querySelector('.copyright');
-            if (yearSpan) {
-                yearSpan.innerHTML = yearSpan.innerHTML.replace('2025', new Date().getFullYear());
-            }
-        });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Update current year in copyright
+document.addEventListener('DOMContentLoaded', function() {
+  const yearSpan = document.querySelector('.copyright');
+  if (yearSpan) {
+    yearSpan.innerHTML = yearSpan.innerHTML.replace('2025', new Date().getFullYear());
+  }
+});
