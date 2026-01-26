@@ -1,53 +1,58 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const db = require("./db");
-const transporter = require("./email");
-const sendEmail = require("./email");
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import pool from "./db.js";
+import nodemailer from "nodemailer";
 
-
+dotenv.config();
 
 const app = express();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
+
+// Email transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 // Test route
-app.get("/", (req, res) => {
-  res.send("Contact API is running");
-});
+app.get("/", (req, res) => res.send("Contact API is running"));
 
 // Contact form route
 app.post("/contact", async (req, res) => {
   const { name, email, subject, message } = req.body;
 
   if (!name || !email || !message) {
-    console.log("Invalid data:", req.body);
-    return res.status(400).json({ message: "Invalid form data" });
+    return res.status(400).json({ message: "Missing required fields" });
   }
 
-  const sql =
-    "INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)";
+  try {
+    await pool.query(
+      `INSERT INTO contacts (name, email, subject, message)
+       VALUES ($1, $2, $3, $4)`,
+      [name, email, subject, message]
+    );
 
-  db.query(sql, [name, email, subject, message], async (err) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ message: "Database error" });
-    }
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      subject: `New message from ${name}`,
+      html: `<p><strong>Email:</strong> ${email}</p>
+             <p><strong>Subject:</strong> ${subject}</p>
+             <p>${message}</p>`,
+    });
 
-    try {
-      await sendEmail({ name, email, subject, message });
-      res.status(201).json({ message: "Message sent successfully" });
-    } catch (emailError) {
-      console.error("Email error:", emailError);
-      res.status(500).json({ message: "Saved, but email failed" });
-    }
-  });
+    res.status(201).json({ message: "Message sent successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
