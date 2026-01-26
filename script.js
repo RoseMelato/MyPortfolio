@@ -31,45 +31,51 @@
         
         
 // Form submission
+// Form submission
 const contactForm = document.getElementById("contactForm");
 
 contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  const formData = { name, email, subject, message };
-
-  console.log("SENDING:", formData); // frontend debug
+  // Collect form data
+  const formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value,
+  };
 
   try {
+    // Send email via EmailJS
+    await emailjs.sendForm(
+      "service_tpqrnj",      
+      "template_mhz4d27",    
+      formData,              // Pass the data object
+      "3CWBYjiky_rY-T2yX"     
+    );
+
+    // Save to database (Render backend)
     const response = await fetch("https://rlmelato-myportfolio.onrender.com/contact", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
 
     const data = await response.json();
-
     if (response.ok) {
       alert("Message sent successfully!");
       contactForm.reset();
     } else {
-      alert(data.message || "Something went wrong");
+      console.error("Database error:", data.message);
+      alert("Message saved in database, but something went wrong.");
     }
   } catch (error) {
-    console.error(error);
-    alert("Server error. Please try again later.");
+    console.error("Error:", error);
+    alert("Something went wrong. Please try again.");
   }
 });
 
-
-        // Smooth scrolling for anchor links
+// Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
