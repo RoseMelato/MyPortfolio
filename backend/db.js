@@ -11,23 +11,6 @@ const pool = new Pool({
   },
 });
 
-// Create contacts table if not exists
-const createTableQuery = `
-CREATE TABLE IF NOT EXISTS contacts (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  subject TEXT,
-  message TEXT NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-`;
-
-pool
-  .query(createTableQuery)
-  .then(() => console.log("✅ contacts table ready"))
-  .catch(err => console.error("❌ Table creation error:", err));
-
 pool
   .connect()
   .then(() => console.log("Connected to PostgreSQL"))
