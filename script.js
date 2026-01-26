@@ -47,10 +47,15 @@ contactForm.addEventListener("submit", async (e) => {
 
   try {
     // Send email via EmailJS
-    await emailjs.sendForm(
+    await emailjs.send(
       "service_tpqrnj",      
       "template_mhz4d27",    
-      formData,              // Pass the data object
+      {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },              // Pass the data object
       "3CWBYjiky_rY-T2yX"     
     );
 
