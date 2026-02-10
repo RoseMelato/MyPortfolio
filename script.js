@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Close menu when clicking a link
 const navLinks = navMenu.querySelectorAll('a');
 navLinks.forEach(link => {
-  ink.addEventListener('click', function() {
+  link.addEventListener('click', function() {
     navMenu.classList.remove('active');
     mobileMenuBtn.classList.remove('active');
     const icon = mobileMenuBtn.querySelector('i');
