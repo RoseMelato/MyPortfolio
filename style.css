@@ -1,27 +1,90 @@
+/* ========================================
+   TABLE OF CONTENTS
+   ========================================
+   
+   1. CSS Variables & Root Settings
+   2. Base Styles & Resets
+   3. Typography
+   4. Layout Utilities
+   5. Button Styles
+   6. Header & Navigation
+   7. Hero Section
+   8. Skills Section
+   9. Learning Journey Section
+   10. Projects Section
+   11. About Section
+   12. Contact Section
+   13. Footer
+   14. Project Detail Page Components
+      14.1 Project Hero
+      14.2 Main Content Area
+      14.3 Overview Grid
+      14.4 Feature Showcase
+      14.5 Responsibility Grid
+      14.6 Tech Stack
+      14.7 Architecture Section
+      14.8 Code Examples
+      14.9 Workflow Steps
+      14.10 Challenges Grid
+      14.11 Impact Grid
+      14.12 Learning Outcomes
+      14.13 Project CTA
+   15. Neon Effects & Color Variations
+   16. Utility Classes
+   17. Responsive Design
+      17.1 Large Tablets (max-width: 992px)
+      17.2 Tablets (max-width: 768px)
+      17.3 Mobile Phones (max-width: 480px)
+      17.4 Small Mobile (max-width: 320px)
+      17.5 Landscape Orientation
+      17.6 High DPI Screens
+      17.7 Print Styles
+   
+   ======================================== */
+
+/* ========================================
+   1. CSS VARIABLES & ROOT SETTINGS
+   ======================================== */
+
 :root {
+    /* Base Colors */
     --primary: #0a0a0a;
     --primary-dark: #000000;
     --secondary: #f5f5f5;
     --light: #121212;
     --gray: #a0a0a0;
     --light-gray: #2a2a2a;
+    
+    /* Accent Colors */
     --accent: #00ff9d;           /* Neon Green */
     --accent-pink: #ff00ff;      /* Neon Pink */
     --accent-purple: #9d00ff;    /* Neon Purple */
     --accent-blue: #00e0ff;      /* Neon Blue */
+    
+    /* Glow Effects */
     --accent-glow: rgba(0, 255, 157, 0.3);
     --pink-glow: rgba(255, 0, 255, 0.3);
     --purple-glow: rgba(157, 0, 255, 0.3);
-    --border-radius: 8px;
+    
+    /* Shadows */
     --shadow: 0 10px 30px rgba(0, 255, 157, 0.15);
     --pink-shadow: 0 10px 30px rgba(255, 0, 255, 0.15);
     --purple-shadow: 0 10px 30px rgba(157, 0, 255, 0.15);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--accent), var(--accent-blue));
     --gradient-secondary: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
     --gradient-dark: linear-gradient(135deg, #0a0a0a, #000000);
     --gradient-card: linear-gradient(145deg, #1a1a1a, #121212);
+    
+    /* Effects */
+    --border-radius: 8px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ========================================
+   2. BASE STYLES & RESETS
+   ======================================== */
 
 * {
     margin: 0;
@@ -40,7 +103,11 @@ body {
     background-color: var(--light);
 }
 
-h1, h2, h3, h4 {
+/* ========================================
+   3. TYPOGRAPHY
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -77,6 +144,10 @@ p {
     color: var(--gray);
 }
 
+/* ========================================
+   4. LAYOUT UTILITIES
+   ======================================== */
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -101,6 +172,10 @@ section {
     left: 50%;
     transform: translateX(-50%);
 }
+
+/* ========================================
+   5. BUTTON STYLES
+   ======================================== */
 
 .btn {
     display: inline-block;
@@ -142,7 +217,15 @@ section {
     box-shadow: 0 0 25px var(--pink-glow), var(--pink-shadow);
 }
 
-/* Header & Navigation */
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   6. HEADER & NAVIGATION
+   ======================================== */
+
 header {
     position: fixed;
     top: 0;
@@ -219,12 +302,13 @@ nav ul li a:hover:after {
     cursor: pointer;
     color: var(--secondary);
     padding: 5px;
-    z-index:1001;
+    z-index: 1001;
 }
 
+/* ========================================
+   7. HERO SECTION
+   ======================================== */
 
-
-/* Hero Section */
 .hero {
     padding-top: 150px;
     padding-bottom: 100px;
@@ -306,14 +390,12 @@ nav ul li a:hover:after {
 
 .hero-image {
     position: relative;
-    
 }
 
 .hero-image img {
     width: 100%;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
     border-radius: 50%;
+    box-shadow: var(--shadow);
 }
 
 .image-frame {
@@ -335,7 +417,10 @@ nav ul li a:hover:after {
     opacity: 0.3;
 }
 
-/* Skills Section */
+/* ========================================
+   8. SKILLS SECTION
+   ======================================== */
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -373,7 +458,10 @@ nav ul li a:hover:after {
     color: var(--secondary);
 }
 
-/* Learning Journey Section */
+/* ========================================
+   9. LEARNING JOURNEY SECTION
+   ======================================== */
+
 .learning-journey {
     background-color: #1a1a1a;
 }
@@ -436,23 +524,10 @@ nav ul li a:hover:after {
     color: var(--secondary);
 }
 
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
+/* ========================================
+   10. PROJECTS SECTION
+   ======================================== */
 
-.tech-tag {
-    background-color: var(--light-gray);
-    color: var(--accent);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    border: 1px solid rgba(0, 255, 157, 0.3);
-}
-
-/* Projects Section */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -487,10 +562,7 @@ nav ul li a:hover:after {
     height: 300px;
 }
 
-.project-img1 img {
-    width: 100%;
-}
-
+.project-img1 img,
 .project-img img {
     width: 100%;
     height: 100%;
@@ -555,7 +627,10 @@ nav ul li a:hover:after {
     padding: 2rem;
 }
 
-/* About Section */
+/* ========================================
+   11. ABOUT SECTION
+   ======================================== */
+
 .about-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -614,7 +689,10 @@ nav ul li a:hover:after {
     font-size: 0.9rem;
 }
 
-/* Contact Section */
+/* ========================================
+   12. CONTACT SECTION
+   ======================================== */
+
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -683,7 +761,10 @@ nav ul li a:hover:after {
     box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
-/* Footer */
+/* ========================================
+   13. FOOTER
+   ======================================== */
+
 footer {
     background-color: var(--primary);
     color: var(--secondary);
@@ -715,7 +796,659 @@ footer {
     margin-top: 2rem;
 }
 
-/* Neon Glow Effects */
+/* ========================================
+   14. PROJECT DETAIL PAGE COMPONENTS
+   ======================================== */
+
+/* 14.1 Project Hero */
+.project-hero {
+    padding: 120px 0 60px;
+    background: var(--gradient-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-link {
+    margin-bottom: 2rem;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    background: rgba(255,255,255,0.05);
+}
+
+.btn-back:hover {
+    color: var(--accent);
+    transform: translateX(-5px);
+    background: rgba(0,255,157,0.1);
+}
+
+.project-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.project-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.05);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+}
+
+.meta-item i {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.meta-item strong {
+    color: var(--secondary);
+    margin-right: 0.3rem;
+}
+
+.project-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.project-category-tag {
+    background: rgba(0,255,157,0.1);
+    color: var(--accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(0,255,157,0.3);
+    transition: var(--transition);
+}
+
+.project-category-tag:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* 14.2 Main Content Area */
+.project-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.project-section {
+    margin-bottom: 4rem;
+}
+
+.project-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.project-section h2 i {
+    color: var(--accent);
+    font-size: 1.6rem;
+}
+
+/* 14.3 Overview Grid */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.overview-card {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border: 1px solid var(--light-gray);
+    transition: var(--transition);
+}
+
+.overview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent);
+}
+
+.overview-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.overview-card-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.overview-card h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.overview-card ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.overview-card li {
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+}
+
+/* 14.4 Feature Showcase */
+.feature-showcase {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0,255,157,0.05);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #000;
+    margin: 0 auto 1.5rem;
+}
+
+.feature-item h4 {
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+/* 14.5 Responsibility Grid */
+.responsibility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.responsibility-card {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border: 1px solid var(--light-gray);
+    transition: var(--transition);
+}
+
+.responsibility-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent);
+}
+
+.responsibility-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.responsibility-card ul {
+    padding-left: 1.2rem;
+}
+
+.responsibility-card li {
+    margin-bottom: 0.75rem;
+    color: var(--gray);
+}
+
+/* 14.6 Tech Stack */
+.tech-stack-section {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+}
+
+.tech-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tech-category h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.tech-category h4 i {
+    color: var(--accent);
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: rgba(0,255,157,0.1);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(0,255,157,0.3);
+    transition: var(--transition);
+}
+
+.tech-tag:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* 14.7 Architecture Section */
+.architecture-section {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+}
+
+.architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.architecture-node {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    transition: var(--transition);
+}
+
+.architecture-node:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.architecture-node i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.architecture-node h5 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.architecture-node p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 14.8 Code Examples */
+.code-example {
+    background: #1a1a1a;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--light-gray);
+    margin: 2rem 0;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #000;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.code-header h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    color: var(--accent);
+}
+
+.code-language {
+    background: rgba(0,255,157,0.1);
+    color: var(--accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
+pre {
+    padding: 1.5rem;
+    margin: 0;
+    overflow-x: auto;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* 14.9 Workflow Steps */
+.workflow-section {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+}
+
+.workflow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.workflow-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.workflow-step:hover {
+    transform: translateX(10px);
+    background: rgba(0,255,157,0.05);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.step-content p {
+    margin: 0;
+    color: var(--gray);
+}
+
+/* 14.10 Challenges Grid */
+.challenges-section {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+}
+
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.challenge-card {
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--light-gray);
+    transition: var(--transition);
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.challenge-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.challenge-header i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.challenge-header h4 {
+    margin: 0;
+    color: var(--secondary);
+}
+
+.challenge-content {
+    padding: 1.5rem;
+}
+
+.solution-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0,255,157,0.05);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--accent);
+}
+
+.solution-box strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+/* 14.11 Impact Grid */
+.impact-section {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.impact-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.impact-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0,255,157,0.05);
+}
+
+.impact-item i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.impact-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.impact-item p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* 14.12 Learning Outcomes */
+.learning-outcomes {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+}
+
+.outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.outcome-item:hover {
+    transform: translateX(5px);
+    background: rgba(0,255,157,0.05);
+}
+
+.outcome-item i {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.outcome-item p {
+    margin: 0;
+    flex: 1;
+}
+
+/* 14.13 Project CTA */
+.project-cta {
+    text-align: center;
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin: 4rem 0;
+    border: 1px solid var(--light-gray);
+}
+
+.project-cta h2 {
+    border: none;
+    justify-content: center;
+}
+
+.project-cta p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   15. NEON EFFECTS & COLOR VARIATIONS
+   ======================================== */
+
+/* Glow Effects */
 .neon-glow {
     box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(0, 255, 157, 0.1);
 }
@@ -724,232 +1457,6 @@ footer {
     text-shadow: 0 0 10px var(--accent), 0 0 20px rgba(0, 255, 157, 0.5);
 }
 
-/* to override any white text issues */
-.current-learning-focus div {
-    background: var(--gradient-card) !important;
-    border: 1px solid var(--light-gray) !important;
-    padding: 1rem !important;
-    border-radius: var(--border-radius) !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-.current-learning-focus strong {
-    color: var(--secondary) !important;
-}
-
-.current-learning-focus i {
-    color: var(--accent-pink) !important;
-    margin-right: 8px !important;
-}
-
-/* Update tech tags with color variations */
-.tech-tag:nth-child(2n) {
-    background: rgba(157, 0, 255, 0.1) !important;
-    color: var(--accent-purple) !important;
-    border: 1px solid rgba(157, 0, 255, 0.3) !important;
-}
-
-.tech-tag:nth-child(3n) {
-    background: rgba(255, 0, 255, 0.1) !important;
-    color: var(--accent-pink) !important;
-    border: 1px solid rgba(255, 0, 255, 0.3) !important;
-}
-
-.tech-tag:nth-child(4n) {
-    background: rgba(0, 224, 255, 0.1) !important;
-    color: var(--accent-blue) !important;
-    border: 1px solid rgba(0, 224, 255, 0.3) !important;
-}
-
-/* Update project tags */
-.tag:nth-child(2n) {
-    background: rgba(157, 0, 255, 0.1) !important;
-    color: var(--accent-purple) !important;
-    border: 1px solid rgba(157, 0, 255, 0.3) !important;
-}
-
-.tag:nth-child(3n) {
-    background: rgba(255, 0, 255, 0.1) !important;
-    color: var(--accent-pink) !important;
-    border: 1px solid rgba(255, 0, 255, 0.3) !important;
-}
-
-/* Update social icons hover effects */
-.social-icon:nth-child(2n):hover {
-    background: var(--gradient-secondary) !important;
-    color: #000 !important;
-    box-shadow: 0 0 15px var(--pink-glow) !important;
-}
-
-/* Update section titles with alternating accents */
-.section-title h2:nth-child(2n):after {
-    background: var(--gradient-secondary) !important;
-}
-
-/* Update journey cards with alternating accents */
-.journey-card:nth-child(2n):before {
-    background: var(--gradient-secondary) !important;
-}
-
-.journey-card:nth-child(2n) i {
-    background: var(--gradient-secondary) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-}
-
-.journey-card:nth-child(2n) .year {
-    background: var(--gradient-secondary) !important;
-}
-
-/* Update skill cards with alternating icons */
-.skill-card:nth-child(2n) i {
-    background: var(--gradient-secondary) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-}
-
-.skill-card:nth-child(3n) i {
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent)) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-}
-
-/* Update contact icons */
-.contact-item:nth-child(2n) i {
-    background: var(--gradient-secondary) !important;
-}
-
-.contact-item:nth-child(3n) i {
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)) !important;
-}
-
-/* Add specific styles for project detail page elements */
-.overview-card-icon:nth-child(2n) {
-    background: var(--gradient-secondary) !important;
-}
-
-.feature-icon:nth-child(2n) {
-    background: var(--gradient-secondary) !important;
-}
-
-.step-number:nth-child(2n) {
-    background: var(--gradient-secondary) !important;
-    box-shadow: 0 4px 12px var(--pink-glow) !important;
-}
-
-.responsibility-card h4:nth-child(2n) {
-    color: var(--accent-pink) !important;
-}
-
-.responsibility-card h4 i:nth-child(2n) {
-    color: var(--accent-pink) !important;
-}
-
-.tech-category h4 i:nth-child(2n) {
-    color: var(--accent-pink) !important;
-}
-
-.code-header h4 i:nth-child(2n) {
-    color: var(--accent-pink) !important;
-}
-
-.challenge-header i:nth-child(2n) {
-    color: var(--accent-pink) !important;
-}
-
-.outcome-item i:nth-child(2n) {
-    color: var(--accent-pink) !important;
-}
-
-/* Fix text visibility in all sections */
-.project-hero-content p,
-.project-meta,
-.meta-item span,
-.overview-card p,
-.overview-card li,
-.feature-item p,
-.responsibility-card li,
-.tech-category p,
-.code-language,
-.challenge-content p,
-.solution-box p,
-.outcome-item p,
-.project-cta p {
-    color: var(--gray) !important;
-}
-
-/* Fix white background issues */
-.current-learning-focus,
-.project-hero,
-.feature-showcase,
-.role-section,
-.tech-stack-section,
-.architecture-section,
-.workflow-section,
-.challenges-section,
-.learning-outcomes,
-.project-cta,
-.results-section,
-.hackathon-context {
-    background: #1a1a1a !important;
-    color: var(--secondary) !important;
-}
-
-/* Fix neon glow for all accent colors */
-.btn:hover,
-.btn-accent:hover,
-.project-category-tag:hover,
-.tech-tag:hover,
-.tag:hover {
-    box-shadow: 0 0 15px var(--accent-glow) !important;
-}
-
-.tag:nth-child(2n):hover {
-    box-shadow: 0 0 15px var(--purple-glow) !important;
-}
-
-.tag:nth-child(3n):hover {
-    box-shadow: 0 0 15px var(--pink-glow) !important;
-}
-
-/* Update timeline with neon colors */
-.timeline-item:nth-child(2n):before {
-    background: var(--gradient-secondary) !important;
-}
-
-.timeline-date:nth-child(2n) {
-    color: var(--accent-pink) !important;
-}
-
-/* Update form focus states */
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-pink) !important;
-    box-shadow: 0 0 0 2px var(--pink-glow) !important;
-}
-
-/* Update footer links with alternating colors */
-.footer-links a:nth-child(2n):hover {
-    color: var(--accent-pink) !important;
-}
-
-.footer-links a:nth-child(3n):hover {
-    color: var(--accent-purple) !important;
-}
-
-/* Update navigation hover effects */
-nav ul li a:nth-child(2n):hover {
-    color: var(--accent-pink) !important;
-}
-
-nav ul li a:nth-child(2n):hover:after {
-    background: var(--gradient-secondary) !important;
-}
-
-/* Add neon text effects for key elements */
 .neon-text-green {
     text-shadow: 0 0 10px var(--accent), 0 0 20px rgba(0, 255, 157, 0.5);
 }
@@ -962,102 +1469,228 @@ nav ul li a:nth-child(2n):hover:after {
     text-shadow: 0 0 10px var(--accent-purple), 0 0 20px rgba(157, 0, 255, 0.5);
 }
 
-/* Update project category tags with colors */
-.project-category-tag:nth-child(2) {
-    background: rgba(157, 0, 255, 0.1) !important;
-    color: var(--accent-purple) !important;
-    border: 1px solid rgba(157, 0, 255, 0.3) !important;
+/* Alternating Color Patterns */
+/* Tech Tags */
+.tech-tag:nth-child(2n) {
+    background: rgba(157, 0, 255, 0.1);
+    color: var(--accent-purple);
+    border: 1px solid rgba(157, 0, 255, 0.3);
 }
 
-.project-category-tag:nth-child(3) {
-    background: rgba(255, 0, 255, 0.1) !important;
-    color: var(--accent-pink) !important;
-    border: 1px solid rgba(255, 0, 255, 0.3) !important;
+.tech-tag:nth-child(3n) {
+    background: rgba(255, 0, 255, 0.1);
+    color: var(--accent-pink);
+    border: 1px solid rgba(255, 0, 255, 0.3);
 }
 
-.project-category-tag:nth-child(4) {
-    background: rgba(0, 224, 255, 0.1) !important;
-    color: var(--accent-blue) !important;
-    border: 1px solid rgba(0, 224, 255, 0.3) !important;
+.tech-tag:nth-child(4n) {
+    background: rgba(0, 224, 255, 0.1);
+    color: var(--accent-blue);
+    border: 1px solid rgba(0, 224, 255, 0.3);
 }
 
-/* Update meta items with icons */
+/* Project Tags */
+.tag:nth-child(2n) {
+    background: rgba(157, 0, 255, 0.1);
+    color: var(--accent-purple);
+    border: 1px solid rgba(157, 0, 255, 0.3);
+}
+
+.tag:nth-child(3n) {
+    background: rgba(255, 0, 255, 0.1);
+    color: var(--accent-pink);
+    border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+/* Section Titles */
+.section-title h2:nth-child(2n):after {
+    background: var(--gradient-secondary);
+}
+
+/* Journey Cards */
+.journey-card:nth-child(2n):before {
+    background: var(--gradient-secondary);
+}
+
+.journey-card:nth-child(2n) i {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.journey-card:nth-child(2n) .year {
+    background: var(--gradient-secondary);
+}
+
+/* Skill Cards */
+.skill-card:nth-child(2n) i {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.skill-card:nth-child(3n) i {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Contact Icons */
+.contact-item:nth-child(2n) i {
+    background: var(--gradient-secondary);
+}
+
+.contact-item:nth-child(3n) i {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+}
+
+/* Social Icons Hover */
+.social-icon:nth-child(2n):hover {
+    background: var(--gradient-secondary);
+    color: #000;
+    box-shadow: 0 0 15px var(--pink-glow);
+}
+
+/* Footer Links */
+.footer-links a:nth-child(2n):hover {
+    color: var(--accent-pink);
+}
+
+.footer-links a:nth-child(3n):hover {
+    color: var(--accent-purple);
+}
+
+/* Navigation Hover */
+nav ul li a:nth-child(2n):hover {
+    color: var(--accent-pink);
+}
+
+nav ul li a:nth-child(2n):hover:after {
+    background: var(--gradient-secondary);
+}
+
+/* Project Detail Page Alternating Colors */
+.project-section:nth-child(even) .feature-icon,
+.project-section:nth-child(even) .overview-card-icon,
+.project-section:nth-child(even) .step-number {
+    background: var(--gradient-secondary);
+}
+
+.project-section:nth-child(even) .project-section h2 i {
+    color: var(--accent-pink);
+}
+
+.project-section:nth-child(3n) .feature-icon,
+.project-section:nth-child(3n) .overview-card-icon,
+.project-section:nth-child(3n) .step-number {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+}
+
+/* Meta Items */
 .meta-item:nth-child(2n) i {
-    color: var(--accent-pink) !important;
+    color: var(--accent-pink);
 }
 
 .meta-item:nth-child(3n) i {
-    color: var(--accent-purple) !important;
+    color: var(--accent-purple);
 }
 
-/* Add these styles at the end of the file to ensure they override */
+/* Project Category Tags */
+.project-category-tag:nth-child(2) {
+    background: rgba(157, 0, 255, 0.1);
+    color: var(--accent-purple);
+    border: 1px solid rgba(157, 0, 255, 0.3);
+}
+
+.project-category-tag:nth-child(3) {
+    background: rgba(255, 0, 255, 0.1);
+    color: var(--accent-pink);
+    border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+.project-category-tag:nth-child(4) {
+    background: rgba(0, 224, 255, 0.1);
+    color: var(--accent-blue);
+    border: 1px solid rgba(0, 224, 255, 0.3);
+}
+
+/* Hover Effects with Different Colors */
+.tag:nth-child(2n):hover {
+    box-shadow: 0 0 15px var(--purple-glow);
+}
+
+.tag:nth-child(3n):hover {
+    box-shadow: 0 0 15px var(--pink-glow);
+}
+
+/* Timeline */
+.timeline-item:nth-child(2n):before {
+    background: var(--gradient-secondary);
+}
+
+.timeline-date:nth-child(2n) {
+    color: var(--accent-pink);
+}
+
+/* Form Focus */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 0 2px var(--pink-glow);
+}
+
+/* ========================================
+   16. UTILITY CLASSES
+   ======================================== */
+
+/* Current Learning Focus Component */
 .current-learning-focus {
-    margin-top: 3rem !important;
+    margin-top: 3rem;
 }
 
 .current-learning-focus h3 {
-    color: var(--secondary) !important;
-    margin-bottom: 1.5rem !important;
-    text-align: center !important;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .current-learning-focus > div {
-    display: flex !important;
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 1rem !important;
-    margin-top: 1.5rem !important;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .current-learning-focus > div > div {
-    background: var(--gradient-card) !important;
-    padding: 1rem !important;
-    border-radius: var(--border-radius) !important;
-    border: 1px solid var(--light-gray) !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
-    min-width: 180px !important;
-    text-align: center !important;
+    background: var(--gradient-card);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    min-width: 180px;
+    text-align: center;
 }
 
 .current-learning-focus strong {
-    color: var(--secondary) !important;
-    font-size: 1rem !important;
+    color: var(--secondary);
+    font-size: 1rem;
 }
 
 .current-learning-focus i {
-    color: var(--accent-pink) !important;
-    margin-right: 8px !important;
-    font-size: 1.2rem !important;
+    color: var(--accent-pink);
+    margin-right: 8px;
+    font-size: 1.2rem;
 }
 
-/* Ensure all text is visible */
-body, 
-h1, h2, h3, h4, h5, h6,
-p, span, li, td, th,
-.project-title, .project-subtitle,
-.overview-card h3, .feature-item h4,
-.step-content h4, .challenge-header h4,
-.result-card p, .constraint-item h4,
-.architecture-node h5 {
-    color: var(--secondary) !important;
-}
+/* ========================================
+   17. RESPONSIVE DESIGN
+   ======================================== */
 
-/* Fix any remaining white backgrounds */
-*[style*="background: white"],
-*[style*="background-color: white"],
-*[style*="background: #ffffff"],
-*[style*="background-color: #ffffff"],
-*[style*="background: var(--background-white)"],
-*[style*="background-color: var(--background-white)"] {
-    background: #1a1a1a !important;
-    background-color: #1a1a1a !important;
-}
-/* Responsive Design */
-/* ========== EXISTING CSS (keep everything above) ========== */
-
-/* ========== ENHANCED RESPONSIVE DESIGN ========== */
-
-/* Large Tablets (768px - 992px) */
+/* 17.1 Large Tablets (768px - 992px) */
 @media (max-width: 992px) {
     h1 {
         font-size: 2.4rem;
@@ -1144,7 +1777,7 @@ p, span, li, td, th,
     }
 }
 
-/* Tablets (576px - 768px) */
+/* 17.2 Tablets (576px - 768px) */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.2rem;
@@ -1194,16 +1827,15 @@ p, span, li, td, th,
         left: 0;
         width: 100%;
         height: 100vh;
-        background-color:rgba(10,10,10,0.98);
+        background-color: rgba(10,10,10,0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         padding: 0;
-        margin:0;
+        margin: 0;
         justify-content: center;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         align-items: center;
-        z-index:1000;
-       /* overflow-y: auto;*/
+        z-index: 1000;
     }
     
     nav ul.active {
@@ -1211,7 +1843,6 @@ p, span, li, td, th,
     }
     
     nav ul li {
-        padding: 0;
         padding: 1rem 0;
         width: 100%;
         text-align: center;
@@ -1219,9 +1850,7 @@ p, span, li, td, th,
     
     nav ul li a {
         font-size: 1.2rem;
-        padding: 0.5rem 1;
-       /* display: block;
-        width: 100%;*/
+        padding: 0.5rem 1rem;
     }
     
     .mobile-menu-btn {
@@ -1326,7 +1955,7 @@ p, span, li, td, th,
     }
 }
 
-/* Mobile Phones (480px and below) */
+/* 17.3 Mobile Phones (480px and below) */
 @media (max-width: 480px) {
     h1 {
         font-size: 1.8rem;
@@ -1479,30 +2108,30 @@ p, span, li, td, th,
     
     /* Current Learning Focus */
     .current-learning-focus {
-        margin-top: 2rem !important;
+        margin-top: 2rem;
     }
     
     .current-learning-focus h3 {
-        font-size: 1.2rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
     
     .current-learning-focus > div {
-        gap: 0.75rem !important;
+        gap: 0.75rem;
     }
     
     .current-learning-focus > div > div {
-        min-width: 140px !important;
-        padding: 0.8rem !important;
+        min-width: 140px;
+        padding: 0.8rem;
     }
     
     .current-learning-focus strong {
-        font-size: 0.9rem !important;
+        font-size: 0.9rem;
     }
     
     .current-learning-focus i {
-        font-size: 1rem !important;
-        margin-right: 6px !important;
+        font-size: 1rem;
+        margin-right: 6px;
     }
     
     /* Project detail pages */
@@ -1550,10 +2179,7 @@ p, span, li, td, th,
     .tech-stack-section,
     .learning-outcomes,
     .project-cta,
-    .architecture-section,
-    .pipeline-section,
-    .results-section,
-    .hackathon-context {
+    .architecture-section {
         padding: 1.2rem;
     }
     
@@ -1625,7 +2251,7 @@ p, span, li, td, th,
     }
 }
 
-/* Small Mobile Phones (320px and below) */
+/* 17.4 Small Mobile Phones (320px and below) */
 @media (max-width: 320px) {
     h1 {
         font-size: 1.6rem;
@@ -1649,7 +2275,7 @@ p, span, li, td, th,
     }
     
     .current-learning-focus > div > div {
-        min-width: 100% !important;
+        min-width: 100%;
     }
     
     .project-category-tag {
@@ -1658,7 +2284,7 @@ p, span, li, td, th,
     }
 }
 
-/* Landscape Orientation Fixes */
+/* 17.5 Landscape Orientation Fixes */
 @media (max-height: 600px) and (orientation: landscape) {
     .hero {
         padding-top: 100px;
@@ -1679,7 +2305,7 @@ p, span, li, td, th,
     }
 }
 
-/* High DPI Screens */
+/* 17.6 High DPI Screens */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .btn,
     .skill-card,
@@ -1691,7 +2317,7 @@ p, span, li, td, th,
     }
 }
 
-/* Print Styles */
+/* 17.7 Print Styles */
 @media print {
     header,
     footer,
