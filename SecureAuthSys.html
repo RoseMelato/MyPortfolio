@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAuthSys | Project Details - RL Melato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Additional styles for code blocks */
+        .endpoint-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        
+        .endpoint {
+            background: #1a1a1a;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-family: 'Roboto Mono', monospace;
+            margin: 0.5rem 0;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .security-note {
+            background: rgba(255, 0, 255, 0.05);
+            border-left: 4px solid var(--accent-pink);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--gradient-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--light-gray);
+        }
+        
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        th {
+            background: rgba(0,255,157,0.1);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        td {
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Rose<span>Melato</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#learning">Journey</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html#projects" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
+            </div>
+            
+            <div class="project-hero-content">
+                <h1 class="project-title">SecureAuthSys</h1>
+                <p class="project-subtitle">Secure Authentication REST API with ASP.NET Core & JWT</p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>My Role:</strong> Backend Developer</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Duration:</strong> 2 weeks</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span><strong>Project Type:</strong> Individual Project</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span><strong>Status:</strong> Completed</span>
+                    </div>
+                </div>
+
+                <br>
+                <div class="project-category">
+                    <span class="project-category-tag">C#</span>
+                    <span class="project-category-tag">ASP.NET Core</span>
+                    <span class="project-category-tag">JWT Authentication</span>
+                    <span class="project-category-tag">SQL Server</span>
+                    <span class="project-category-tag">REST API</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="project-content">
+        <!-- Project Overview -->
+        <div class="project-section">
+            <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Problem Statement</h3>
+                    </div>
+                    <p>Modern applications require secure authentication systems to protect user data and restrict unauthorized access. Many beginner-level authentication systems suffer from common security problems:</p>
+                    <ul>
+                        <li>Storing passwords in plain text</li>
+                        <li>Lack of authentication tokens</li>
+                        <li>Insecure login systems</li>
+                        <li>No password recovery mechanism</li>
+                        <li>Poor user identity verification</li>
+                    </ul>
+                    <div class="security-note">
+                        <strong><i class="fas fa-shield-alt"></i> Security Risk:</strong> Without proper security mechanisms, applications are vulnerable to unauthorized access, data breaches, identity theft, and session hijacking.
+                    </div>
+                </div>
+                
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>My Solution</h3>
+                    </div>
+                    <p>A secure authentication REST API built with ASP.NET Core that implements modern security best practices:</p>
+                    <ul>
+                        <li>JWT-based authentication for secure login</li>
+                        <li>Password hashing (never stored in plain text)</li>
+                        <li>User registration with validation</li>
+                        <li>Password reset functionality with token verification</li>
+                        <li>Protected API endpoints with role-based access</li>
+                        <li>SQL Server database with Entity Framework Core</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="project-section">
+            <h2><i class="fas fa-star"></i> Key Features</h2>
+            
+            <div class="feature-showcase">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h4>User Registration</h4>
+                        <p>Secure registration with password hashing - passwords are never stored in plain text</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-sign-in-alt"></i>
+                        </div>
+                        <h4>JWT Authentication</h4>
+                        <p>JSON Web Token-based login system with secure token generation and validation</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4>Protected Endpoints</h4>
+                        <p>API routes secured with token-based authorization middleware</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h4>Password Reset</h4>
+                        <p>Secure password recovery with time-limited reset tokens</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Endpoints -->
+        <div class="project-section">
+            <h2><i class="fas fa-plug"></i> API Endpoints</h2>
+            
+            <div class="tech-stack-section">
+                <h3>Authentication Routes</h3>
+                
+                <div class="endpoint">
+                    <span class="endpoint-badge">POST</span> <code>/api/auth/register</code> - User registration
+                </div>
+                <div class="endpoint">
+                    <span class="endpoint-badge">POST</span> <code>/api/auth/login</code> - User login & JWT token generation
+                </div>
+                <div class="endpoint">
+                    <span class="endpoint-badge">POST</span> <code>/api/auth/forgot-password</code> - Generate password reset token
+                </div>
+                <div class="endpoint">
+                    <span class="endpoint-badge">POST</span> <code>/api/auth/reset-password</code> - Reset password with token
+                </div>
+                
+                <h3 style="margin-top: 2rem;">Protected Routes (Require JWT)</h3>
+                <div class="endpoint">
+                    <span class="endpoint-badge">GET</span> <code>/api/users/profile</code> - Get user profile (authenticated)
+                </div>
+                <div class="endpoint">
+                    <span class="endpoint-badge">GET</span> <code>/api/admin/dashboard</code> - Admin only (role-based)
+                </div>
+            </div>
+        </div>
+
+        <!-- Technologies Used -->
+        <div class="project-section">
+            <h2><i class="fas fa-cogs"></i> Technologies Used</h2>
+            
+            <div class="tech-stack-section">
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h4><i class="fas fa-code"></i> Backend</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">ASP.NET Core (.NET 8)</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">RESTful API</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4><i class="fas fa-database"></i> Database</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Entity Framework Core</span>
+                            <span class="tech-tag">Code-First Migrations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4><i class="fas fa-shield-alt"></i> Security</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JWT (JSON Web Tokens)</span>
+                            <span class="tech-tag">Password Hashing</span>
+                            <span class="tech-tag">Token Expiry Validation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4><i class="fas fa-tools"></i> Tools</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Visual Studio</span>
+                            <span class="tech-tag">SQL Server Management Studio</span>
+                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Database Design -->
+        <div class="project-section">
+            <h2><i class="fas fa-database"></i> Database Design</h2>
+            
+            <div class="architecture-section">
+                <h3>Users Table Schema</h3>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>Id</code></td>
+                                <td>Unique user identifier (Primary Key)</td>
+                            </tr>
+                            <tr>
+                                <td><code>Username</code></td>
+                                <td>User display name</td>
+                            </tr>
+                            <tr>
+                                <td><code>Email</code></td>
+                                <td>User email address (unique)</td>
+                            </tr>
+                            <tr>
+                                <td><code>PasswordHash</code></td>
+                                <td>Hashed password - never stored in plain text</td>
+                            </tr>
+                            <tr>
+                                <td><code>Role</code></td>
+                                <td>User role (User/Admin)</td>
+                            </tr>
+                            <tr>
+                                <td><code>PasswordResetToken</code></td>
+                                <td>Token used for password reset</td>
+                            </tr>
+                            <tr>
+                                <td><code>ResetTokenExpiry</code></td>
+                                <td>Expiry time for reset token (30 minutes)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="security-note">
+                    <i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong>Security Note:</strong> Passwords are hashed before storage using a secure hashing algorithm. The original password is never stored or logged.
+                </div>
+            </div>
+        </div>
+
+        <!-- System Architecture -->
+        <div class="project-section">
+            <h2><i class="fas fa-sitemap"></i> System Architecture</h2>
+            
+            <div class="architecture-section">
+                <p>The system follows a layered architecture structure:</p>
+                
+                <div class="architecture-grid">
+                    <div class="architecture-node">
+                        <i class="fas fa-wifi"></i>
+                        <h5>Controller Layer</h5>
+                        <p>Handles HTTP requests and API endpoints</p>
+                    </div>
+                    
+                    <div class="architecture-node">
+                        <i class="fas fa-cog"></i>
+                        <h5>Service Layer</h5>
+                        <p>Authentication logic, password hashing, JWT generation</p>
+                    </div>
+                    
+                    <div class="architecture-node">
+                        <i class="fas fa-layer-group"></i>
+                        <h5>Data Layer</h5>
+                        <p>Entity Framework Core database access</p>
+                    </div>
+                    
+                    <div class="architecture-node">
+                        <i class="fas fa-database"></i>
+                        <h5>Database</h5>
+                        <p>SQL Server - stores users and reset tokens</p>
+                    </div>
+                </div>
+                
+                <pre style="margin-top: 2rem; text-align: center; background: #1a1a1a; padding: 1rem; border-radius: var(--border-radius);">
+Client (Swagger / Frontend)
+        ⬇
+ASP.NET Core REST API
+        ⬇
+Authentication Logic / Services
+        ⬇
+Entity Framework Core
+        ⬇
+SQL Server Database
+                </pre>
+            </div>
+        </div>
+
+        <!-- Code Examples -->
+        <div class="project-section">
+            <h2><i class="fas fa-code"></i> Key Code Implementations</h2>
+            
+            <!-- JWT Helper -->
+            <div class="code-example">
+                <div class="code-header">
+                    <h4><i class="fas fa-key"></i> JWT Token Generator</h4>
+                    <span class="code-language">C#</span>
+                </div>
+                <pre><code>public class JwtHelper
+{
+    private readonly IConfiguration _configuration;
+    
+    public JwtHelper(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+    
+    public string GenerateToken(User user)
+    {
+        var securityKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+        var credentials = new SigningCredentials(
+            securityKey, SecurityAlgorithms.HmacSha256);
+        
+        var claims = new[]
+        {
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            new Claim(ClaimTypes.Name, user.Username),
+            new Claim(ClaimTypes.Role, user.Role),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+        };
+        
+        var token = new JwtSecurityToken(
+            issuer: _configuration["Jwt:Issuer"],
+            audience: _configuration["Jwt:Audience"],
+            claims: claims,
+            expires: DateTime.UtcNow.AddHours(2),
+            signingCredentials: credentials
+        );
+        
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+}</code></pre>
+            </div>
+            
+            <!-- Password Hasher -->
+            <div class="code-example">
+                <div class="code-header">
+                    <h4><i class="fas fa-lock"></i> Password Hasher</h4>
+                    <span class="code-language">C#</span>
+                </div>
+                <pre><code>public class PasswordHasher
+{
+    public string HashPassword(string password)
+    {
+        return BCrypt.Net.BCrypt.HashPassword(password);
+    }
+    
+    public bool VerifyPassword(string password, string passwordHash)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, passwordHash);
+    }
+}
+
+// Usage during registration:
+var hashedPassword = _passwordHasher.HashPassword(password);
+
+// Usage during login:
+var isValid = _passwordHasher.VerifyPassword(password, user.PasswordHash);</code></pre>
+            </div>
+            
+            <!-- Login Endpoint -->
+            <div class="code-example">
+                <div class="code-header">
+                    <h4><i class="fas fa-sign-in-alt"></i> Login Endpoint</h4>
+                    <span class="code-language">C#</span>
+                </div>
+                <pre><code>[HttpPost("login")]
+public async Task&lt;IActionResult&gt; Login(LoginDto model)
+{
+    // Find user by email
+    var user = await _context.Users
+        .FirstOrDefaultAsync(u => u.Email == model.Email);
+    
+    if (user == null)
+        return Unauthorized("Invalid email or password");
+    
+    // Verify password hash
+    bool isPasswordValid = _passwordHasher.VerifyPassword(
+        model.Password, user.PasswordHash);
+    
+    if (!isPasswordValid)
+        return Unauthorized("Invalid email or password");
+    
+    // Generate JWT token
+    var token = _jwtHelper.GenerateToken(user);
+    
+    return Ok(new
+    {
+        token = token,
+        user = user.Username,
+        role = user.Role,
+        expiresIn = 7200 // 2 hours in seconds
+    });
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Development Steps -->
+        <div class="project-section">
+            <h2><i class="fas fa-tasks"></i> Development Process</h2>
+            
+            <div class="workflow-section">
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Project Setup</h4>
+                            <p>Created ASP.NET Core Web API project and installed required packages: Entity Framework Core, JWT authentication libraries, and SQL Server provider.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Database Configuration</h4>
+                            <p>Configured connection string in appsettings.json and set up Entity Framework Core with SQL Server using code-first approach.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>User Model & Database Creation</h4>
+                            <p>Created User model with all required fields and generated database migrations to create the Users table.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Password Hashing Implementation</h4>
+                            <p>Implemented PasswordHasher helper class to securely hash passwords before storage and verify them during login.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Registration Endpoint</h4>
+                            <p>Created registration endpoint that accepts user details, hashes the password, and stores the user in the database.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>JWT Authentication</h4>
+                            <p>Implemented JWT helper class for token generation and configured authentication middleware to validate tokens on protected endpoints.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h4>Login System</h4>
+                            <p>Created login endpoint that verifies credentials and returns a JWT token for authenticated users.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">8</div>
+                        <div class="step-content">
+                            <h4>Password Reset System</h4>
+                            <p>Implemented forgot-password endpoint that generates a reset token, and reset-password endpoint that validates the token and updates the password.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenges & Solutions -->
+        <div class="project-section">
+            <h2><i class="fas fa-puzzle-piece"></i> Challenges & Solutions</h2>
+            
+            <div class="challenges-section">
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-key"></i>
+                            <h4>JWT Key Size Error</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>An error occurred due to a JWT secret key that was too short. The HS256 algorithm requires a key of at least 256 bits (32 characters).</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Increased the secret key length in configuration to meet the minimum requirement. Used a secure, randomly generated key of sufficient length.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-redo-alt"></i>
+                            <h4>Password Reset Token Issue</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>An error occurred during password reset due to database constraints when saving null values for reset token fields.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Ensured database fields allowed null values and properly cleared reset tokens after successful password updates by setting them to null.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-clock"></i>
+                            <h4>Token Expiry Management</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>Reset tokens needed to expire after a certain time for security, but also needed to be invalidated after use.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Implemented token expiry validation checking both that the token exists and that the current time is before the expiry time. Tokens are cleared after successful use.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Features -->
+        <div class="project-section">
+            <h2><i class="fas fa-shield-alt"></i> Security Features Implemented</h2>
+            
+            <div class="impact-section">
+                <div class="impact-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div class="impact-item">
+                        <i class="fas fa-lock"></i>
+                        <h4>Password Hashing</h4>
+                        <p>Passwords are hashed using BCrypt - never stored in plain text</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-ticket-alt"></i>
+                        <h4>JWT Authentication</h4>
+                        <p>Secure token-based authentication with cryptographic signing</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-hourglass-half"></i>
+                        <h4>Token Expiration</h4>
+                        <p>All tokens have limited validity periods (2 hours for login, 30 minutes for reset)</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-ban"></i>
+                        <h4>Protected Routes</h4>
+                        <p>Authorization middleware protects sensitive endpoints</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-user-tag"></i>
+                        <h4>Role-Based Access</h4>
+                        <p>Support for role-based authorization (User/Admin)</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-random"></i>
+                        <h4>Secure Reset Tokens</h4>
+                        <p>Time-limited, single-use tokens for password recovery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Outcomes -->
+        <div class="project-section">
+            <h2><i class="fas fa-graduation-cap"></i> Learning Outcomes</h2>
+            
+            <div class="learning-outcomes">
+                <div class="outcomes-grid">
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Mastered JWT authentication implementation in ASP.NET Core</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Understood password hashing and security best practices</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Gained experience with Entity Framework Core and SQL Server</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Learned to implement secure password reset functionality</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Developed skills in RESTful API design with .NET</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Understood token expiration and validation mechanisms</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Practiced debugging and solving security-related issues</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Learned to protect API endpoints with authorization middleware</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Improvements -->
+        <div class="project-section">
+            <h2><i class="fas fa-rocket"></i> Future Improvements</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Integration</h3>
+                    </div>
+                    <ul>
+                        <li>Email-based password reset links instead of returning tokens in response</li>
+                        <li>Email verification during registration</li>
+                        <li>Welcome emails for new users</li>
+                        <li>Password change notifications</li>
+                    </ul>
+                </div>
+                
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <h3>Enhanced Security</h3>
+                    </div>
+                    <ul>
+                        <li>Refresh tokens for better session management</li>
+                        <li>Account lockout after failed login attempts</li>
+                        <li>Two-factor authentication (2FA)</li>
+                        <li>Rate limiting to prevent brute force attacks</li>
+                        <li>Comprehensive logging and monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Advanced Features</h3>
+                    </div>
+                    <ul>
+                        <li>Role-based access control (RBAC) with permissions</li>
+                        <li>User profile management endpoints</li>
+                        <li>Audit logs for security events</li>
+                        <li>API versioning</li>
+                        <li>OpenAPI/Swagger documentation improvements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="project-section">
+            <h2><i class="fas fa-check-circle"></i> Conclusion</h2>
+            
+            <div class="overview-card" style="width: 100%;">
+                <p style="font-size: 1.1rem; line-height: 1.8;">SecureAuthSys successfully demonstrates how to build a <strong>secure authentication system using ASP.NET Core and JWT</strong>. The project highlights important backend development skills including:</p>
+                <ul style="margin-top: 1rem; columns: 2; column-gap: 2rem;">
+                    <li>RESTful API design</li>
+                    <li>Authentication systems</li>
+                    <li>Security best practices</li>
+                    <li>Database integration</li>
+                    <li>Token-based authorization</li>
+                    <li>Password hashing</li>
+                    <li>Secure password recovery</li>
+                    <li>Entity Framework Core</li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: var(--accent); font-weight: 500;">This project serves as a foundation for secure backend systems used in modern web applications.</p>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="project-cta">
+            <h2>Explore the Secure Authentication System</h2>
+            <p>View the source code to see how a production-ready authentication API is built with security best practices</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/RoseMelato/SecureAuthSystem.git" class="btn btn-large" target="_blank">
+                    <i class="fab fa-github"></i> View GitHub Repository
+                </a>
+                <a href="index.html#projects" class="btn btn-outline btn-large">
+                    <i class="fas fa-code"></i> See Other Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo" style="color: white;">RL<span style="color: #a78bfa;">Melato</span></a>
+            
+            <div class="footer-links">
+                <a href="https://github.com/RoseMelato"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/rose-lerato-melato"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:rosemelato25@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2025 Rose Melato. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.overview-card, .feature-item, .responsibility-card, .architecture-node, .impact-item, .challenge-card, .outcome-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

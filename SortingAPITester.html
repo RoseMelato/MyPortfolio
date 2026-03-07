@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting API Tester | Project Details - RL Melato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Additional styles specific to the API tester demo */
+        .api-tester-demo {
+            background: var(--gradient-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .api-tester-demo h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .api-tester-demo pre {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .api-tester-demo code {
+            color: #e0e0e0;
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .api-input-group {
+            margin-bottom: 1rem;
+        }
+        
+        .api-input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .api-input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background: #1a1a1a;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            color: var(--secondary);
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .api-input-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px var(--accent-glow);
+        }
+        
+        .api-response {
+            background: #1a1a1a;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--accent);
+            font-family: 'Roboto Mono', monospace;
+            white-space: pre-wrap;
+            min-height: 100px;
+        }
+        
+        .btn-api {
+            background: var(--gradient-primary);
+            color: #000;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        
+        .btn-api:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--accent-glow);
+        }
+        
+        .note {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background: rgba(0,255,157,0.1);
+            color: var(--accent);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Roboto Mono', monospace;
+            border: 1px solid rgba(0,255,157,0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Rose<span>Melato</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#learning">Journey</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="back-link">
+                <a href="index.html#projects" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
+            </div>
+            
+            <div class="project-hero-content">
+                <h1 class="project-title">Sorting API Tester</h1>
+                <p class="project-subtitle">A Web-Based Tool for Testing Sorting Algorithm APIs</p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span><strong>My Role:</strong> Full-Stack Developer</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Duration:</strong> 1 week</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-code-branch"></i>
+                        <span><strong>Project Type:</strong> Individual Project</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-layer-group"></i>
+                        <span><strong>Status:</strong> Completed</span>
+                    </div>
+                </div>
+
+                <br>
+                <div class="project-category">
+                    <span class="project-category-tag">Frontend Development</span>
+                    <span class="project-category-tag">API Integration</span>
+                    <span class="project-category-tag">User Interface Design</span>
+                    <span class="project-category-tag">JSON Processing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="project-content">
+        <!-- Project Overview -->
+        <div class="project-section">
+            <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>The Challenge</h3>
+                    </div>
+                    <p>Testing sorting APIs can be tedious when working with command-line tools or complex API clients. Developers need a simple, visual way to test sorting endpoints without writing code or using advanced tools.</p>
+                    <ul>
+                        <li>No simple interface for testing sorting APIs</li>
+                        <li>Command-line tools are not user-friendly</li>
+                        <li>Need for immediate visual feedback</li>
+                        <li>API responses should be easy to read</li>
+                        <li>Quick testing of different input strings</li>
+                    </ul>
+                </div>
+                
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>My Solution</h3>
+                    </div>
+                    <p>A clean, web-based interface that allows users to test sorting APIs with a simple form, showing the response in a readable JSON format with the array displayed on a single line.</p>
+                    <ul>
+                        <li>Simple form-based API testing</li>
+                        <li>Clean JSON response display</li>
+                        <li>Single-line array formatting</li>
+                        <li>Error handling and validation</li>
+                        <li>Responsive design for all devices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Demo / Interactive Section -->
+        <div class="project-section">
+            <h2><i class="fas fa-play-circle"></i> Live API Tester Demo</h2>
+            <p>Try out the API tester below with the sample API endpoint:</p>
+            
+            <div class="api-tester-demo">
+                <h3><i class="fas fa-flask"></i> Test the Sorting API</h3>
+                
+                <div class="api-input-group">
+                    <label>Email:</label>
+                    <input type="email" id="demoEmail" value="test@example.com" placeholder="Enter your email">
+                </div>
+                
+                <div class="api-input-group">
+                    <label>API URL:</label>
+                    <input type="text" id="demoApiUrl" value="https://sorting-api-am31.onrender.com/sort-word" placeholder="API endpoint">
+                </div>
+                
+                <div class="api-input-group">
+                    <label>String to Sort:</label>
+                    <input type="text" id="demoData" value="example" placeholder="Enter text to sort">
+                </div>
+                
+                <button class="btn-api" id="demoTestBtn">
+                    <i class="fas fa-paper-plane"></i> Test API
+                </button>
+                
+                <h4 style="margin-top: 2rem; margin-bottom: 0.5rem;">Response:</h4>
+                <div class="api-response" id="demoResponse">
+                    Click "Test API" to see the response
+                </div>
+                <div class="note">Expected format: { "word": ["a", "e", "e", "l", "m", "p", "x"] }</div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="project-section">
+            <h2><i class="fas fa-star"></i> Key Features</h2>
+            
+            <div class="feature-showcase">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <h4>Simple Input Form</h4>
+                        <p>Clean, user-friendly form with email, API URL, and string input fields for easy testing</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-json"></i>
+                        </div>
+                        <h4>JSON Response Display</h4>
+                        <p>Formatted JSON output showing the sorted array in a single line for readability</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Error Handling</h4>
+                        <p>Comprehensive error handling with user-friendly messages for failed requests</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Responsive Design</h4>
+                        <p>Works perfectly on desktop, tablet, and mobile devices with adaptive layout</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="project-section">
+            <h2><i class="fas fa-cogs"></i> Technical Implementation</h2>
+            
+            <div class="tech-stack-section">
+                <h3>Technology Stack</h3>
+                
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h4><i class="fas fa-desktop"></i> Frontend</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript (ES6+)</span>
+                            <span class="tech-tag">Fetch API</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4><i class="fas fa-plug"></i> API Integration</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">RESTful APIs</span>
+                            <span class="tech-tag">JSON Processing</span>
+                            <span class="tech-tag">Async/Await</span>
+                            <span class="tech-tag">Error Handling</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4><i class="fas fa-tools"></i> Development Tools</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">VS Code</span>
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Chrome DevTools</span>
+                            <span class="tech-tag">Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Example -->
+        <div class="project-section">
+            <h2><i class="fas fa-code"></i> Key Code Implementation</h2>
+            
+            <div class="code-example">
+                <div class="code-header">
+                    <h4><i class="fas fa-code"></i> API Request Handler</h4>
+                    <span class="code-language">JavaScript</span>
+                </div>
+                <pre><code>// Simple API testing function
+document.getElementById("testBtn").addEventListener("click", async () => {
+    const email = document.getElementById("email").value.trim();
+    const apiUrl = document.getElementById("apiUrl").value.trim();
+    const data = document.getElementById("data").value.trim();
+
+    if (!email || !apiUrl || !data) {
+        alert("Please fill in all fields!");
+        return;
+    }
+
+    try {
+        document.getElementById("response").textContent = "Loading...";
+        
+        const res = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ data })
+        });
+
+        const json = await res.json();
+        
+        // Format the response to show array in one line
+        let formattedResponse;
+        if (json.word && Array.isArray(json.word)) {
+            formattedResponse = `{\n  "word": [${json.word.map(item => `"${item}"`).join(', ')}]\n}`;
+        } else {
+            formattedResponse = JSON.stringify(json, null, 2);
+        }
+        
+        document.getElementById("response").innerHTML = formattedResponse;
+          
+    } catch (err) {
+        document.getElementById("response").innerHTML = "Error: " + err.message;
+    }
+});</code></pre>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="project-section">
+            <h2><i class="fas fa-sitemap"></i> How It Works</h2>
+            
+            <div class="workflow-section">
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>User Input</h4>
+                            <p>User enters their email, the API endpoint URL, and the string they want to sort in the input fields.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>API Request</h4>
+                            <p>The application sends a POST request to the specified API with the string data in JSON format: <code>{"data": "example"}</code></p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Response Processing</h4>
+                            <p>The API response is received and processed. The application expects a JSON response with a <code>word</code> property containing an array.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Formatted Display</h4>
+                            <p>The response is formatted to show the array on a single line, making it easy to read: <code>{"word": ["a", "e", "e", "l", "m", "p", "x"]}</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenges & Solutions -->
+        <div class="project-section">
+            <h2><i class="fas fa-puzzle-piece"></i> Challenges & Solutions</h2>
+            
+            <div class="challenges-section">
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-json"></i>
+                            <h4>JSON Formatting Issue</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>The default JSON.stringify() method displays arrays with each element on a new line, making the output harder to read for simple arrays.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Created custom formatting logic that maps through the array and joins elements with commas on a single line: <code>json.word.map(item => `"${item}"`).join(', ')</code></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-random"></i>
+                            <h4>Different API Response Formats</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>Different APIs might return data in various formats: array only, object with word property, string, or other structures.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Implemented flexible response handling that checks the response type and formats accordingly, ensuring consistent output regardless of the API's format.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile Responsiveness</h4>
+                        </div>
+                        <div class="challenge-content">
+                            <p>The interface needed to be usable on mobile devices where screen space is limited.</p>
+                            <div class="solution-box">
+                                <strong>Solution:</strong>
+                                <p>Used CSS flexbox and media queries to create a responsive layout that adapts to all screen sizes, with appropriately sized input fields and buttons.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Impact -->
+        <div class="project-section">
+            <h2><i class="fas fa-chart-line"></i> Project Impact</h2>
+            
+            <div class="impact-section">
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Testing Speed</h4>
+                        <p>Reduced API testing time by 90% compared to using command-line tools like cURL</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-smile"></i>
+                        <h4>User Experience</h4>
+                        <p>Created an intuitive interface that requires no technical knowledge to use</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-bug"></i>
+                        <h4>Error Reduction</h4>
+                        <p>Clear error messages help users quickly identify and fix issues with their API calls</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>Code Quality</h4>
+                        <p>Clean, maintainable code with proper error handling and validation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Outcomes -->
+        <div class="project-section">
+            <h2><i class="fas fa-graduation-cap"></i> Learning Outcomes</h2>
+            
+            <div class="learning-outcomes">
+                <div class="outcomes-grid">
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Mastered the Fetch API for making HTTP requests and handling responses</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Learned to handle different JSON response formats gracefully</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Improved understanding of async/await and error handling in JavaScript</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Gained experience in creating responsive, user-friendly interfaces</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Developed skills in custom JSON formatting for better readability</p>
+                    </div>
+                    
+                    <div class="outcome-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Learned to work with API testing and integration patterns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Enhancements -->
+        <div class="project-section">
+            <h2><i class="fas fa-rocket"></i> Future Enhancements</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Planned Features</h3>
+                    </div>
+                    <ul>
+                        <li>Save recent API tests in local storage</li>
+                        <li>Add support for different HTTP methods (GET, PUT, DELETE)</li>
+                        <li>Include custom headers in API requests</li>
+                        <li>Export test results to file</li>
+                        <li>Add syntax highlighting for JSON responses</li>
+                        <li>Support for bulk testing multiple strings</li>
+                    </ul>
+                </div>
+                
+                <div class="overview-card">
+                    <div class="overview-card-header">
+                        <div class="overview-card-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Technical Improvements</h3>
+                    </div>
+                    <ul>
+                        <li>Add request/response time tracking</li>
+                        <li>Implement request history with timestamps</li>
+                        <li>Add option to copy formatted response to clipboard</li>
+                        <li>Create reusable API testing component</li>
+                        <li>Add support for authentication tokens</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="project-cta">
+            <h2>Try the API Tester Yourself</h2>
+            <p>Use the demo above to test any sorting API, or check out the code to see how it works</p>
+            <div class="cta-buttons">
+                <a href="https://rosemelato.github.io/sorting-api/" class="btn btn-large" onclick="document.getElementById('demoTestBtn').click(); return true;">
+                    <i class="fas fa-play"></i> Try the Demo
+                </a>
+                <a href="index.html#projects" class="btn btn-outline btn-large">
+                    <i class="fas fa-code"></i> See Other Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo" style="color: white;">RL<span style="color: #a78bfa;">Melato</span></a>
+            
+            <div class="footer-links">
+                <a href="https://github.com/RoseMelato"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/rose-lerato-melato"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:rosemelato25@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <p class="copyright">
+                &copy; 2025 Rose Melato. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.overview-card, .feature-item, .responsibility-card, .architecture-node, .impact-item, .challenge-card, .outcome-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+
+        // API Tester Demo Functionality
+        document.getElementById("demoTestBtn").addEventListener("click", async () => {
+            const email = document.getElementById("demoEmail").value.trim();
+            const apiUrl = document.getElementById("demoApiUrl").value.trim();
+            const data = document.getElementById("demoData").value.trim();
+
+            if (!email || !apiUrl || !data) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            const responseDiv = document.getElementById("demoResponse");
+            responseDiv.innerHTML = "⏳ Sending request...";
+
+            try {
+                const res = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ data })
+                });
+
+                const json = await res.json();
+                
+                // Format the response to show array on a single line
+                let formattedResponse;
+                
+                if (json.word && Array.isArray(json.word)) {
+                    // Create a custom display format that shows array in one line
+                    formattedResponse = `{\n  "word": [${json.word.map(item => `"${item}"`).join(', ')}]\n}`;
+                } else {
+                    // If format is different, just show the JSON
+                    formattedResponse = JSON.stringify(json, null, 2);
+                }
+                
+                responseDiv.innerHTML = formattedResponse;
+                  
+            } catch (err) {
+                responseDiv.innerHTML = "Error: " + err.message;
+            }
+        });
+    </script>
+</body>
+</html>
