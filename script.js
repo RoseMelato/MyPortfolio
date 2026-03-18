@@ -131,11 +131,13 @@ if (contactForm) {
     else {
       console.error("Database error:", data.message);
       alert("Message saved in database, but something went wrong.");
+      contactForm.reset();
     }
     } 
     catch (error) {
       console.error("Error:", error);
       alert("Something went wrong. Please try again.");
+      contactForm.reset();
     }
   });
 }
